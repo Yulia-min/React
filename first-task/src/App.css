@@ -1,0 +1,37 @@
+.UserDetails{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+  background-color: black;
+}
+
+.UserInfo{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(30, 165, 75);
+  width: 20%;
+  padding: 1%;
+  border: 1px solid wheat;
+}
+
+.Avatar{
+  display: flex;
+  width: 20%;
+}
+
+.Content{
+  display: flex;
+  color: rgb(51, 170, 160);
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  background-color: black;
+
+}
+.ContentUserInfo{
+  color: rgb(35, 83, 241);
+}
