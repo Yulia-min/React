@@ -1,6 +1,6 @@
 import './App.css';
 import UserDetails from './components/UserDetails'
-import Content from './components/Content'
+import React from 'react';
 
 const user = {
   "id": 1,
@@ -26,23 +26,31 @@ const user = {
   }
 }
 
-const content={
-  "id": 2,
-  "name": "Yulia",
-  "username": "Kliapitskaya",
-  "email": "gallavich66@gmail.com",
-  "address": {
-    "city": "Polotsk",
-    },
-  "phone": "+375295126282",
+class Content extends React.Component{
+  constructor(props){
+    super(props);
+    this.state =  { albums: []};
+  }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/albums').then((res) => {
+      return res.json();
+    }).then(data => this.setState({albums: data}));
+  }
+
+  render() {
+    return <div>{this.state.albums.map(albums => <div key = {albums.id}>{albums.title}</div>)}</div>
+  }
 }
 
 function App() { 
-  
   return (
     <div className="App">
       <UserDetails user={user}/>
-      <Content content={content}/>
+      <div className="Content">
+        <Content/>
+      </div>
+
     </div>
   );
 }
