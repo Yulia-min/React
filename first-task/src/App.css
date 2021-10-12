@@ -4,6 +4,9 @@
   align-items: center;
   width: 100%;
   justify-content: space-around;
+}
+
+.App{
   background-color: black;
 }
 
@@ -25,13 +28,30 @@
 
 .Content{
   display: flex;
-  color: rgb(51, 170, 160);
-  align-items: center;
-  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 4%;
   justify-content: center;
-  background-color: black;
-
+  width: 100%;
+  color: rgb(51, 170, 160);
 }
+
 .ContentUserInfo{
   color: rgb(35, 83, 241);
+}
+
+.ContentInfo{
+  width: 20%;
+  border: 1px solid white;
+  padding: 4px;
+}
+
+.backClick{
+  display: flex;
+  flex-wrap: wrap;
+  color: rgb(117, 83, 238);
+  border: 1px solid #fff;
+  height: 25px;
+  padding: 4px;
+  margin-right: 50px;
+  margin-left: -9%;
 }

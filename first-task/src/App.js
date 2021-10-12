@@ -1,6 +1,7 @@
 import './App.css';
 import UserDetails from './components/UserDetails'
 import React from 'react';
+import Content  from './components/Content';
 
 const user = {
   "id": 1,
@@ -26,24 +27,32 @@ const user = {
   }
 }
 
-class Content extends React.Component{
-  constructor(props){
-    super(props);
-    this.state =  { albums: []};
-  }
-
-  componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/albums').then((res) => {
-      return res.json();
-    }).then(data => this.setState({albums: data}));
-  }
-
-  render() {
-    return <div>{this.state.albums.map(albums => <div key = {albums.id}>{albums.title}</div>)}</div>
+/*function AlbumCell({ title, id }){
+  const [isImageView, setIsImageView] = useState(false)
+  if(isImageView){
+     return <AlbomImageCell id={id}/>
+  } else {
+    return (
+      <div className="ContentInfo" onClick={() => setIsImageView(true)}>{title}</div>
+    )
   }
 }
 
+function AlbomImageCell({id}){
+  const [photos, setPhotos] = useState([])
+  useEffect(() => {
+    fetch(`https://jsonplaceholder.typicode.com/albums/${id}/photos`).then((res) => {
+      return res.json();
+    }).then(data => setPhotos(data));
+  },[])
+
+  return (
+    <div>{photos.map((item) => <img src={item.url}/> )}</div>
+  )
+}*/
+
 function App() { 
+  
   return (
     <div className="App">
       <UserDetails user={user}/>
