@@ -1,0 +1,57 @@
+.UserDetails{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.App{
+  background-color: black;
+}
+
+.UserInfo{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(30, 165, 75);
+  width: 20%;
+  padding: 1%;
+  border: 1px solid wheat;
+}
+
+.Avatar{
+  display: flex;
+  width: 20%;
+}
+
+.Content{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4%;
+  justify-content: center;
+  width: 100%;
+  color: rgb(51, 170, 160);
+}
+
+.ContentUserInfo{
+  color: rgb(35, 83, 241);
+}
+
+.ContentInfo{
+  width: 20%;
+  border: 1px solid white;
+  padding: 4px;
+}
+
+.backClick{
+  display: flex;
+  flex-wrap: wrap;
+  color: rgb(117, 83, 238);
+  border: 1px solid #fff;
+  height: 25px;
+  padding: 4px;
+  margin-right: 50px;
+  margin-left: -9%;
+}
