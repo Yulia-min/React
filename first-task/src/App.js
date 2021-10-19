@@ -2,6 +2,10 @@ import './App.css';
 import UserDetails from './components/UserDetails'
 import React from 'react';
 import Content  from './components/Content';
+import { Provider } from 'react-redux';
+import store from './store';
+import AddItems from './components/AddItems';
+
 
 const user = {
   "id": 1,
@@ -27,39 +31,19 @@ const user = {
   }
 }
 
-/*function AlbumCell({ title, id }){
-  const [isImageView, setIsImageView] = useState(false)
-  if(isImageView){
-     return <AlbomImageCell id={id}/>
-  } else {
-    return (
-      <div className="ContentInfo" onClick={() => setIsImageView(true)}>{title}</div>
-    )
-  }
-}
-
-function AlbomImageCell({id}){
-  const [photos, setPhotos] = useState([])
-  useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/albums/${id}/photos`).then((res) => {
-      return res.json();
-    }).then(data => setPhotos(data));
-  },[])
-
-  return (
-    <div>{photos.map((item) => <img src={item.url}/> )}</div>
-  )
-}*/
 
 function App() { 
-  
   return (
     <div className="App">
-      <UserDetails user={user}/>
-      <div className="Content">
-        <Content/>
-      </div>
-
+      <Provider store={store}>
+        <div className="AddItems">
+          <AddItems/>
+        </div>
+        <UserDetails user={user}/>
+        <div className="Content">
+          <Content/>
+        </div>
+      </Provider>
     </div>
   );
 }

@@ -55,3 +55,43 @@
   margin-right: 50px;
   margin-left: -9%;
 }
+
+.Button{
+    background-color: #2e2929;
+    border: 1px solid #62d6df;
+    box-shadow: 0 1px 1px rgba(101, 150, 143, 0.075) inset;
+    transition: border 0.2s linear 0s;
+    border-radius: 4px;
+    color: #a7a3a3;
+    display:block;
+    width:120px;
+    margin: 20px auto;
+    text-align:center;
+    height: 30px;
+    padding: 4px 6px;
+}
+
+
+.Button:hover{
+  border-color: rgba(66, 131, 180, 0.8);
+  box-shadow: 0 1px 1px rgba(211, 152, 152, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+  cursor: pointer;
+}
+
+.AddItems{
+  color: #27c5ca;
+  margin-left: 3%;
+  display: flex;
+}
+
+.Photos{
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+}
+
+.Albums{
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+}
