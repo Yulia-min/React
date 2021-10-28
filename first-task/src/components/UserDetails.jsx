@@ -6,7 +6,7 @@ export  default function UserDetails({user}){
     return(
         <div className="UserDetails">
             <div className="Avatar">
-                <img src = {logo} alt="logo"/>
+                <img src={logo} alt="logo"/>
             </div>
             <UserInfo user={user}/>
         </div>
