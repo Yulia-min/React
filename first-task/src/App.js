@@ -2,10 +2,11 @@ import './App.css';
 import UserDetails from './components/UserDetails'
 import React from 'react';
 import Content  from './components/Content';
-import { Provider } from 'react-redux';
-import store from './store';
-import AddItems from './components/AddItems';
-
+import ScrollToBottom from './components/Scroll/ScrollToBottom';
+import ScrollToTop from "./components/Scroll/ScrollToTop"
+import Album from './components/ModalAlbum/Album';
+import AlbumContextProvider from './components/ModalAlbum/AlbumContext';
+import ErrorBoundary from './components/Error/ErrorBoundry'
 
 const user = {
   "id": 1,
@@ -31,19 +32,20 @@ const user = {
   }
 }
 
-
 function App() { 
   return (
     <div className="App">
-      <Provider store={store}>
-        <div className="AddItems">
-          <AddItems/>
-        </div>
-        <UserDetails user={user}/>
-        <div className="Content">
-          <Content/>
-        </div>
-      </Provider>
+      <ScrollToBottom/>
+      <ScrollToTop/>
+      <UserDetails user={user}/>
+      <ErrorBoundary>
+        <AlbumContextProvider>
+            <Album/>
+        </AlbumContextProvider>
+      </ErrorBoundary>
+      <div className="Content">
+        <Content/>
+      </div>
     </div>
   );
 }

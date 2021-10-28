@@ -46,14 +46,13 @@
 }
 
 .backClick{
-  display: flex;
-  flex-wrap: wrap;
+  position: fixed;
   color: rgb(117, 83, 238);
   border: 1px solid #fff;
-  height: 25px;
+  height: 35px;
   padding: 4px;
-  margin-right: 50px;
-  margin-left: -9%;
+  margin-top: -40px;  
+  margin-left: -95%;
 }
 
 .Button{
@@ -65,7 +64,7 @@
     color: #a7a3a3;
     display:block;
     width:120px;
-    margin: 20px auto;
+    margin: 10px auto;
     text-align:center;
     height: 30px;
     padding: 4px 6px;
@@ -94,4 +93,48 @@
   display: flex;
   flex-wrap: wrap;
   width: 60%;
+}
+
+.ScrollToTop{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1%;
+  padding: 4px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #27c5ca;
+  color: #fff;
+}
+
+.ScrollToBottom{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 95%;
+  padding: 4px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #27c5ca;
+  color: #fff;
+}
+
+.ScrollToBottom:hover{
+  cursor: pointer;
+  background: #056063;
+  color: rgb(199, 192, 192);
+}
+
+.ScrollToTop:hover{
+  cursor: pointer;
+  background: #056063;
+  color: rgb(199, 192, 192);
+}
+
+.AlbumItems{
+  color: #27c5ca;
 }
