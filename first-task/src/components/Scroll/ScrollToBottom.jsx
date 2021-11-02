@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 const ScrollToBottom = () => {
-    
-    const ScrollToBottom = () => window.scrollTo(
-        {top:document.documentElement.scrollHeight, 
-        behavior:"smooth"}
-    );
+
+    const ScrollBottom = useCallback(()=>{
+        window.scrollTo(
+            {top:document.documentElement.scrollHeight, 
+            behavior:"smooth"}
+        );
+    })
 
     return(
-        <div className="ScrollToBottom" onClick={ScrollToBottom}>Down</div>     
+        <div className="ScrollToBottom" onClick={ScrollBottom}>Down</div>     
     );
 }
 

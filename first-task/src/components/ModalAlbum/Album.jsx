@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import { AlbumContext } from "./AlbumContext";
 import AlbumItems from "./AlbumItems";
 import { Modal, Button } from "react-bootstrap";
@@ -7,15 +7,14 @@ import AddForm from "./AddForm";
 const Album = () => {
 
     const {albums} = useContext(AlbumContext);
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState();
 
-    const showWindow = () => setShow(true);
-    const close = () => setShow(false);
+    const toggleWindows = useCallback(() => setShow(prevState => !prevState))
 
     return (
         <div>
             <div>
-                <Button onClick={showWindow}>Add albums</Button>	
+                <Button onClick={toggleWindows}>Add albums</Button>	
             </div>
         
             <table className="table">
@@ -44,7 +43,7 @@ const Album = () => {
                     <AddForm />
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button onClick={close}>Close</Button>
+                    <Button onClick={toggleWindows}>Close</Button>
                 </Modal.Footer>
             </Modal>      
         </div>

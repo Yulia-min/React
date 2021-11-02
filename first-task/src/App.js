@@ -1,12 +1,16 @@
 import './App.css';
-import UserDetails from './components/UserDetails'
+import UserDetails from './components/User/UserDetails'
 import React from 'react';
 import Content  from './components/Content';
 import ScrollToBottom from './components/Scroll/ScrollToBottom';
 import ScrollToTop from "./components/Scroll/ScrollToTop"
 import Album from './components/ModalAlbum/Album';
 import AlbumContextProvider from './components/ModalAlbum/AlbumContext';
-import ErrorBoundary from './components/Error/ErrorBoundry'
+import ErrorBoundary from './components/Error/ErrorBoundry';
+import { Provider } from 'react-redux';
+import store from './store';
+import AddItems from './components/AddItems';
+
 
 const user = {
   "id": 1,
@@ -46,6 +50,11 @@ function App() {
       <div className="Content">
         <Content/>
       </div>
+      <Provider store={store}>
+        <div className="AddItems">
+          <AddItems/>
+        </div>
+      </Provider>
     </div>
   );
 }

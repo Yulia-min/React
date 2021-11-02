@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useCallback, useContext, useState} from "react";
 import {Form, Button} from "react-bootstrap"
 import { AlbumContext } from "./AlbumContext";
 
@@ -8,16 +8,17 @@ const AddForm = () => {
         title:"", describe: ""
     });
 
-    const addInput = (e) => {
+    const addInput = useCallback((e) => {
         setAddAlbumItem({...addAlbumItem,[e.target.name]: e.target.value})
-    }
+    })
 
     const {title, describe} = addAlbumItem;
 
-    const handleSubmit = (e) => {
+    const handleSubmit = useCallback((e) => {
         e.preventDefault();
         addAlbum(title, describe);
-    }
+    })
+
     return(
         <Form onSubmit={handleSubmit}>
             <Form.Group>
@@ -26,14 +27,14 @@ const AddForm = () => {
                     name="title"    
                     value={title}
                     required
-                    onChange = { (e) => addInput(e)}
+                    onChange={addInput}
                 />
                 <Form.Control
                     placeholder="describe"
                     name="describe"
                     value={describe}
                     required
-                    onChange = { (e) => addInput(e)}
+                    onChange={addInput}
                     />
             </Form.Group>
             <Button type="submit">Create</Button>

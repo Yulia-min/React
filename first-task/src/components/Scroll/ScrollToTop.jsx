@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {useWindowScroll} from "react-use"
 
 const ScrollToTop = () => {
@@ -13,16 +13,18 @@ const ScrollToTop = () => {
         }
     },[pageYOffset])
 
-    const ScrollToTop = () => window.scrollTo(
-        {top:0,
-        behavior:"smooth"}
-    );
+    const ScrollTop = useCallback(()=>{
+        window.scrollTo(
+            {top:0,
+            behavior:"smooth"}
+        );
+    })
 
     if(!visible){
         return false
     }
     return(
-        <div className="ScrollToTop" onClick={ScrollToTop}>Up</div>    
+        <div className="ScrollToTop" onClick={ScrollTop}>Up</div>    
     );
 }
 

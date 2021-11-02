@@ -1,6 +1,6 @@
 import React from 'react';
 import UserInfo from './UserInfo';
-import logo from '../logo.svg';
+import logo from './logo.svg';
 
 export  default function UserDetails({user}){
     return(
