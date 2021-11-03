@@ -3,14 +3,10 @@ import {useWindowScroll} from "react-use"
 
 const ScrollToTop = () => {
     const {y: pageYOffset} = useWindowScroll()
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState();
 
     useEffect(() => {
-        if(pageYOffset > 400){
-            setVisible(true)
-        }else{
-            setVisible(false)
-        }
+        setVisible(pageYOffset > 400)
     },[pageYOffset])
 
     const ScrollTop = useCallback(()=>{
