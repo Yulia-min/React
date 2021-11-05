@@ -1,26 +1,36 @@
 import React from 'react';
 import { useCallback, useEffect, useState } from 'react';
+import { useHistory, useRouteMatch } from 'react-router';
 
 export default function Content(){
     const [albums, setAlbums] = useState([])
     const [photos, setPhotos] = useState([])
-   
+
+    const { path, params } = useRouteMatch();
+    const history = useHistory();
      useEffect(() => {
-       fetch('https://jsonplaceholder.typicode.com/albums/').then((res) => {
-         return res.json();
-       }).then(data => setAlbums(data));
-     }, [])
+      console.log(params, path)
+       if( path === '/albums/:albumId' && params.albumId) {
+       console.log(params, path)
+          fetch(`https://jsonplaceholder.typicode.com/albums/${params.albumId}/photos`).then((res) => {
+            return res.json();
+          }).then(data => setPhotos(data));
+        }  else {
+         fetch('https://jsonplaceholder.typicode.com/albums/').then((res) => {
+           return res.json();
+          }).then(data => setAlbums(data));
+        }
+     }, [params])
    
      const albumClickHandler = useCallback((id)=> {
-       fetch(`https://jsonplaceholder.typicode.com/albums/${id}/photos`).then((res) => {
-         return res.json();
-       }).then(data => setPhotos(data));
+       history.push(`/albums/${id}`);
      })
    
      const backClickHandler = useCallback(()=>{
-       setPhotos([])
+       setPhotos([]);
+       history.goBack();
      })
-   
+
      return (
          <div className="Content">
            {photos.length === 0 && albums.map((item) => <div className="ContentInfo" onClick={() => albumClickHandler(item.id)}>{item.title}</div>)}
