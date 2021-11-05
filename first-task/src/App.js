@@ -11,12 +11,12 @@ import { Provider } from 'react-redux';
 import store from './store';
 import AddItems from './components/AddItems';
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom'
-import { useRouteMatch, Redirect, Switch, useHistory } from 'react-router';
+import { useRouteMatch, Redirect, useHistory } from 'react-router';
 import SignIn from './components/Routers/SignIn';
 import LoginForm from './components/Routers/LoginForm';
 import Protect from './components/Routers/Protect';
-import UserId from './components/Routers/UserId';
 import User from './components/Routers/User'
+import Header from './components/Routers/Header'
 
 const user = {
   "id": 1,
@@ -42,65 +42,20 @@ const user = {
   }
 }
 
-
-function Header(){
-  return (
-    <div> 
-      { localStorage.getItem("details") ?
-        <>
-          <Link to="/user" exact={true}>User</Link>
-        </>
-        :
-        <>
-          <Link to="/login" exact={true}>LoginForm</Link>
-          <Link to="/" exact={true}>HomePage</Link>
-        </>
-      }
-
-    </div>
-  )
-}
-
 function App(){
   return(  
     <div className="App">
       <Router>
-          <Header/>
-          <SignIn/>
-          <Route path="/login" exact={true}><LoginForm/></Route>
-          <Route path="/user" exact={true}><Protect Cmp={User}/></Route>
-          { localStorage.getItem("details") ?
-          <>
-            <Route path="/" exact={true}><UserId/></Route> 
-          </>
-          :
-          <>
-            <Route path="/" exact={true}><Content/></Route> 
-          </>
-          }       
-          <Route path="/user/:userId" exact={true}><Protect  Cmp={UserId}/></Route>
-          <Route path="/albums" exact={true}><Content/></Route>
-          <Route path="/albums/:albumId" exact={true}><Content/></Route>
-          <Route path="/user/:userId/albums" exact={true}><Protect Cmp={Content}/> </Route>
-          <Route path="/user/:userId/albums/:albumsId" exact={true}><Protect Cmp={Content}/> </Route>
+            <Header/>
+            <SignIn/>
+            <Route path="/login"><LoginForm/></Route>
+            <Route path="/user"><Protect><User/></Protect></Route>
+            <Route path="/" exact>{localStorage.getItem("details") ? <User/> : <Content/>}</Route>     
+            <Route path="/albums" exact><Content/></Route>
+            <Route path="/albums/:albumId"><Content/></Route>
+            <Route path="/user/:userId/albums"><Protect><Content/></Protect></Route>
+            <Route path="/user/:userId/albums/:albumsId"><Protect><Content/></Protect></Route>
       </Router>
-
-  {/*     <ScrollToBottom/>
-      <ScrollToTop/>
-      <UserDetails user={user}/>
-      <ErrorBoundary>
-        <AlbumContextProvider>
-            <Album/>
-        </AlbumContextProvider>
-      </ErrorBoundary>
-      <div className="Content">
-        <Content/>
-      </div>
-      <Provider store={store}>
-        <div className="AddItems">
-          <AddItems/>
-        </div>
-      </Provider> */}
     </div>
   )
 }

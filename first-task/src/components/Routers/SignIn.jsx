@@ -1,6 +1,7 @@
-import React, { useCallback, useState } from 'react';
-import { useHistory } from 'react-router';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useHistory, useRouteMatch } from 'react-router';
 import LoginForm from '../Routers/LoginForm'
+import Header from './Header';
 
 function SignIn(){
     const history = useHistory();

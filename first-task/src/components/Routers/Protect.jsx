@@ -1,15 +1,14 @@
 import React, { useEffect} from 'react';
 import { useHistory } from 'react-router';
 
-function Protect(props){
+function Protect({children}){
     const history = useHistory();
-    let Cmp = props.Cmp;
     useEffect(() => {
       if(!localStorage.getItem('details')){
         history.push("/login");
     }
     })
-    return (<div><Cmp/></div>) 
+    return (<div>{children}</div>) 
   }
 
   export default Protect;

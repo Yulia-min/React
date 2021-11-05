@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import Header from './Header';
 
 function LoginForm({Login, error}){
     const history = useHistory()
@@ -21,8 +22,8 @@ function LoginForm({Login, error}){
     }, [details]);
   
     return(
-        <>
             <form>
+                <Header/>
                 <h2>Login</h2>
                 {(error !== "") ? (<div>{error}</div>) : ""}
                 <div>
@@ -42,7 +43,6 @@ function LoginForm({Login, error}){
                     <button onClick={submitHandler}>SignUp</button>
                 </div>
             </form>
-        </>
     )
   }
 
