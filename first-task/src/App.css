@@ -1,0 +1,140 @@
+.UserDetails{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.App{
+  background-color: rgb(253, 253, 253);
+}
+
+.UserInfo{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(30, 165, 75);
+  width: 20%;
+  padding: 1%;
+  border: 1px solid wheat;
+}
+
+.Avatar{
+  display: flex;
+  width: 20%;
+}
+
+.Content{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4%;
+  justify-content: center;
+  width: 100%;
+  color: rgb(51, 170, 160);
+}
+
+.ContentUserInfo{
+  color: rgb(35, 83, 241);
+}
+
+.ContentInfo{
+  width: 20%;
+  border: 1px solid white;
+  padding: 4px;
+}
+
+.backClick{
+  position: fixed;
+  color: rgb(117, 83, 238);
+  border: 1px solid #fff;
+  height: 35px;
+  padding: 4px;
+  margin-top: -40px;  
+  margin-left: -95%;
+}
+
+.Button{
+    background-color: #2e2929;
+    border: 1px solid #62d6df;
+    box-shadow: 0 1px 1px rgba(101, 150, 143, 0.075) inset;
+    transition: border 0.2s linear 0s;
+    border-radius: 4px;
+    color: #a7a3a3;
+    display:block;
+    width:120px;
+    margin: 10px auto;
+    text-align:center;
+    height: 30px;
+    padding: 4px 6px;
+}
+
+
+.Button:hover{
+  border-color: rgba(66, 131, 180, 0.8);
+  box-shadow: 0 1px 1px rgba(211, 152, 152, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6);
+  cursor: pointer;
+}
+
+.AddItems{
+  color: #27c5ca;
+  margin-left: 3%;
+  display: flex;
+}
+
+.Photos{
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+}
+
+.Albums{
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+}
+
+.ScrollToTop{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1%;
+  padding: 4px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #27c5ca;
+  color: #fff;
+}
+
+.ScrollToBottom{
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 95%;
+  padding: 4px;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background: #27c5ca;
+  color: #fff;
+}
+
+.ScrollToBottom:hover{
+  cursor: pointer;
+  background: #056063;
+  color: rgb(199, 192, 192);
+}
+
+.ScrollToTop:hover{
+  cursor: pointer;
+  background: #056063;
+  color: rgb(199, 192, 192);
+}
+
+.AlbumItems{
+  color: #27c5ca;
+}
